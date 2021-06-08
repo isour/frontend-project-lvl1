@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "[![Actions Status](https://github.com/isour/frontend-project-lvl1/workflows/hexlet-check/badge.svg)](https://github.com/isour/frontend-project-lvl1/actions)",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -15,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/isour/frontend-project-lvl1/issues"
   },
-  "homepage": "https://github.com/isour/frontend-project-lvl1#readme"
+  "homepage": "https://github.com/isour/frontend-project-lvl1#readme",
+  "bin": {
+    "brain-games": "bin/brain-games.js"
+  }
 }
