@@ -27,4 +27,4 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: Run lint
-        run: make lint
+        run: npm ci && make lint
