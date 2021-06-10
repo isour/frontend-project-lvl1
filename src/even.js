@@ -4,7 +4,7 @@ import { name } from './cli.js';
 const getError = (obj) => {
   const { type, answer, correctAnswer } = obj;
   if (type === 'correct') {
-    return `Correct!`;
+    return 'Correct!';
   }
   return `'${answer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.\nLet's try again, ${name}!`;
 };
@@ -27,13 +27,13 @@ const askEven = () => {
     const answer = readlineSync.question(`Question: ${digit}\n`);
     const isEven = digit % 2 === 0;
     if (checkInput(answer) && isEven === getBoolAnswer(answer)) {
-      printError({answer, correctAnswer: getStringAnswer(isEven), type: 'correct'});
+      printError({ answer, correctAnswer: getStringAnswer(isEven), type: 'correct' });
       if (questionCount === 1) {
         console.log(`Congratulations, ${name}!`);
       }
       questionCount -= 1;
     } else {
-      printError({answer, correctAnswer: getStringAnswer(isEven)});
+      printError({ answer, correctAnswer: getStringAnswer(isEven) });
       questionCount = 0;
     }
   }
