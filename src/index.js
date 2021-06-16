@@ -21,7 +21,7 @@ const printCongrat = (name) => {
 
 const askQuestion = (question) => readlineSync.question(`Question: ${question}\n`);
 
-const generateNumber = () => Math.floor(Math.random() * 100);
+const generateNumber = (max = 100) => Math.floor(Math.random() * max);
 
 export {
   printError, printCongrat, askQuestion, generateNumber,
