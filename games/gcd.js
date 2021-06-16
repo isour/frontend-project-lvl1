@@ -5,31 +5,26 @@ import {
 
 const checkInput = (str) => typeof Number(str) === 'number';
 
-const operations = [
-  {
-    sign: '+',
-    fn: (a, b) => Number(a) + Number(b),
-  },
-  {
-    sign: '-',
-    fn: (a, b) => Number(a) - Number(b),
-  },
-  {
-    sign: '*',
-    fn: (a, b) => Number(a) * Number(b),
-  }];
+const getEcd = (a, b) => {
+  let x = a;
+  let y = b;
 
-const getOperation = () => operations[Math.floor(Math.random() * operations.length)];
+  while (y) {
+    const t = y;
+    y = x % y;
+    x = t;
+  }
+  return x;
+};
 
-const calc = () => {
+const gcd = () => {
   let questionCount = QUESTION_COUNT;
   while (questionCount > 0) {
     const digit1 = generateNumber();
     const digit2 = generateNumber();
-    const operLink = getOperation();
-    const rightAnswer = operLink.fn(digit1, digit2);
-    const operSign = operLink.sign;
-    const answer = askQuestion(`${digit1} ${operSign} ${digit2}`);
+    const rightAnswer = getEcd(digit1, digit2);
+    const answer = askQuestion(`${digit1} ${digit2}`);
+
     if (checkInput(answer) && (Number(answer) === rightAnswer)) {
       printError(
         {
@@ -47,4 +42,4 @@ const calc = () => {
   }
 };
 
-export { calc as default };
+export { gcd as default };
