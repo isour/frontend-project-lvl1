@@ -23,4 +23,6 @@ const askQuestion = (question) => readlineSync.question(`Question: ${question}\n
 
 const generateNumber = () => Math.floor(Math.random() * 100);
 
-export { printError, printCongrat, askQuestion, generateNumber };
+export {
+  printError, printCongrat, askQuestion, generateNumber,
+};
