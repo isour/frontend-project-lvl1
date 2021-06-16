@@ -9,3 +9,5 @@
 [![brain calc](https://asciinema.org/a/fsoKkANuQvb0UV4wHjbt9KeKh.svg)](https://asciinema.org/a/fsoKkANuQvb0UV4wHjbt9KeKh)
 ### Brain gcd asciinema
 [![brain gcd](https://asciinema.org/a/0f9Q5OgAcGxKe9qQSaYpbhMWm.svg)](https://asciinema.org/a/0f9Q5OgAcGxKe9qQSaYpbhMWm)
+### Brain progression asciinema
+[![progression](https://asciinema.org/a/QhpGVRvbLpKN4PATD9FFWBNbU.svg)](https://asciinema.org/a/QhpGVRvbLpKN4PATD9FFWBNbU)
