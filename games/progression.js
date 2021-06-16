@@ -21,7 +21,7 @@ const getCensouredSequence = (arr, idx) => {
   return seq;
 };
 
-const printArray = (arr) => arr.reduce((acc, current) => `${acc} ${current}`, '');
+const printArray = (arr) => arr.reduce((acc, current) => `${acc} ${current}`, '').trim();
 
 const progression = () => {
   let questionCount = QUESTION_COUNT;
