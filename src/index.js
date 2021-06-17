@@ -49,5 +49,11 @@ const run = (description, rounds) => {
 };
 
 export {
-  printError, printCongrat, askQuestion, generateNumber, QUESTION_COUNT, getStringAnswer, run as default,
+  printError,
+  printCongrat,
+  askQuestion,
+  generateNumber,
+  QUESTION_COUNT,
+  getStringAnswer,
+  run as default,
 };
