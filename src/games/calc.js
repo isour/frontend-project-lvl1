@@ -25,8 +25,8 @@ const generateQuestions = () => {
   let questionCount = QUESTION_COUNT;
   const res = [];
   while (questionCount > 0) {
-    const digit1 = generateNumber();
-    const digit2 = generateNumber();
+    const digit1 = generateNumber(0, 100);
+    const digit2 = generateNumber(0, 100);
     const operLink = getOperation();
     const rightAnswer = String(operLink.fn(digit1, digit2));
     const operSign = operLink.sign;

@@ -1,20 +1,12 @@
-import '../bin/brain-games.js';
 import readlineSync from 'readline-sync';
-import { name } from './cli.js';
+import askName from './cli.js';
+import generateNumber from './utils.js';
 
 const QUESTION_COUNT = 3;
 
-const getStringAnswer = (bool) => (bool ? 'yes' : 'no');
+let name;
 
-const getError = (obj) => {
-  const {
-    type, answer, correctAnswer,
-  } = obj;
-  if (type === 'correct') {
-    return 'Correct!';
-  }
-  return `'${answer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.\nLet's try again, ${name}!`;
-};
+const getStringAnswer = (bool) => (bool ? 'yes' : 'no');
 
 const printError = (obj) => {
   console.log(getError(obj));
@@ -26,9 +18,8 @@ const printCongrat = () => {
 
 const askQuestion = (question) => readlineSync.question(`Question: ${question}\n`);
 
-const generateNumber = (max = 100) => Math.floor(Math.random() * max);
-
 const run = (description, rounds) => {
+  name = askName();
   console.log(description);
 
   for (let i = 0; i < rounds.length; i += 1) {
@@ -36,14 +27,10 @@ const run = (description, rounds) => {
     const answer = askQuestion(question);
 
     if (answer !== rightAnswer) {
-      printError({ answer, correctAnswer: rightAnswer });
+      console.log(`'${answer}' is wrong answer ;(. Correct answer was '${rightAnswer}'.\nLet's try again, ${name}!`);
       return;
     }
-    printError(
-      {
-        answer, correctAnswer: rightAnswer, type: 'correct',
-      },
-    );
+    console.log('Correct!');
   }
   printCongrat();
 };

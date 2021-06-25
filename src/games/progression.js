@@ -5,8 +5,8 @@ import run, {
 const description = 'What number is missing in the progression?';
 
 const getSequence = () => {
-  const length = 5 + generateNumber(5);
-  const base = generateNumber();
+  const length = 5 + generateNumber(0, 5);
+  const base = generateNumber(0, 100);
   const seq = [];
   for (let i = 0; i < length; i += 1) {
     seq[i] = base + i;
@@ -27,7 +27,7 @@ const generateQuestions = () => {
   const res = [];
   while (questionCount > 0) {
     const seq = getSequence();
-    const seqElIndex = generateNumber(seq.length);
+    const seqElIndex = generateNumber(0, seq.length);
     const rightAnswer = String(seq[seqElIndex]);
     res.push({
       question: printArray(getCensouredSequence(seq, seqElIndex)),
