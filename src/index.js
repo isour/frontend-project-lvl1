@@ -8,14 +8,6 @@ let name;
 
 const getStringAnswer = (bool) => (bool ? 'yes' : 'no');
 
-const printError = (obj) => {
-  console.log(getError(obj));
-};
-
-const printCongrat = () => {
-  console.log(`Congratulations, ${name}!`);
-};
-
 const askQuestion = (question) => readlineSync.question(`Question: ${question}\n`);
 
 const run = (description, rounds) => {
@@ -32,12 +24,10 @@ const run = (description, rounds) => {
     }
     console.log('Correct!');
   }
-  printCongrat();
+  console.log(`Congratulations, ${name}!`);
 };
 
 export {
-  printError,
-  printCongrat,
   askQuestion,
   generateNumber,
   QUESTION_COUNT,
