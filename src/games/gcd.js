@@ -1,6 +1,8 @@
 import run, {
-  generateNumber, QUESTION_COUNT,
+  QUESTION_COUNT,
 } from '../index.js';
+
+import generateNumber from '../utils.js';
 
 const description = 'Find the greatest common divisor of given numbers.';
 
@@ -18,18 +20,18 @@ const getEcd = (a, b) => {
 
 const generateQuestions = () => {
   let questionCount = QUESTION_COUNT;
-  const res = [];
+  const result = [];
   while (questionCount > 0) {
     const digit1 = generateNumber(0, 100);
     const digit2 = generateNumber(0, 100);
     const rightAnswer = String(getEcd(digit1, digit2));
-    res.push({
+    result.push({
       question: `${digit1} ${digit2}`,
       rightAnswer,
     });
     questionCount -= 1;
   }
-  return res;
+  return result;
 };
 
 export default () => {

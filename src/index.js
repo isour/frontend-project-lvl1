@@ -1,12 +1,9 @@
 import readlineSync from 'readline-sync';
 import askName from './cli.js';
-import generateNumber from './utils.js';
 
 const QUESTION_COUNT = 3;
 
 let name;
-
-const getStringAnswer = (bool) => (bool ? 'yes' : 'no');
 
 const askQuestion = (question) => readlineSync.question(`Question: ${question}\n`);
 
@@ -28,9 +25,6 @@ const run = (description, rounds) => {
 };
 
 export {
-  askQuestion,
-  generateNumber,
   QUESTION_COUNT,
-  getStringAnswer,
   run as default,
 };

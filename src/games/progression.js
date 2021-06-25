@@ -1,15 +1,17 @@
 import run, {
-  generateNumber, QUESTION_COUNT,
+  QUESTION_COUNT,
 } from '../index.js';
+
+import generateNumber from '../utils.js';
 
 const description = 'What number is missing in the progression?';
 
-const getSequence = () => {
-  const length = 5 + generateNumber(0, 5);
-  const base = generateNumber(0, 100);
+const getSequence = (progressionStep, progressionBase, progressionLength) => {
   const seq = [];
-  for (let i = 0; i < length; i += 1) {
-    seq[i] = base + i;
+  let step = 0;
+  for (let i = 0; i < progressionLength; i += 1) {
+    seq[i] = progressionBase + step;
+    step += progressionStep;
   }
   return seq;
 };
@@ -20,22 +22,22 @@ const getCensouredSequence = (arr, idx) => {
   return seq;
 };
 
-const printArray = (arr) => arr.reduce((acc, current) => `${acc} ${current}`, '').trim();
+const makeQuestion = (arr) => arr.reduce((acc, current) => `${acc} ${current}`, '').trim();
 
 const generateQuestions = () => {
   let questionCount = QUESTION_COUNT;
-  const res = [];
+  const result = [];
   while (questionCount > 0) {
-    const seq = getSequence();
+    const seq = getSequence(1, generateNumber(0, 100), 5 + generateNumber(0, 5));
     const seqElIndex = generateNumber(0, seq.length);
     const rightAnswer = String(seq[seqElIndex]);
-    res.push({
-      question: printArray(getCensouredSequence(seq, seqElIndex)),
+    result.push({
+      question: makeQuestion(getCensouredSequence(seq, seqElIndex)),
       rightAnswer,
     });
     questionCount -= 1;
   }
-  return res;
+  return result;
 };
 
 export default () => {

@@ -1,9 +1,10 @@
 import run, {
   QUESTION_COUNT,
-  getStringAnswer,
 } from '../index.js';
 
 const description = 'Answer "yes" if given number is prime. Otherwise answer "no".';
+
+const getStringAnswer = (bool) => (bool ? 'yes' : 'no');
 
 const checkIsPrime = (num) => {
   if (num <= 1) return false;
@@ -12,26 +13,24 @@ const checkIsPrime = (num) => {
 
   const boundary = Math.floor(num / 2);
 
-  let res = true;
-
   for (let i = 3; i <= boundary; i += 1) {
-    if (num % i === 0) res = false;
+    if (num % i === 0) return false;
   }
-  return res;
+  return true;
 };
 
 const generateQuestions = () => {
   let questionCount = QUESTION_COUNT;
-  const res = [];
+  const result = [];
   while (questionCount > 0) {
     const digit = Math.floor(Math.random() * 100);
-    res.push({
+    result.push({
       question: digit,
       rightAnswer: getStringAnswer(checkIsPrime(digit)),
     });
     questionCount -= 1;
   }
-  return res;
+  return result;
 };
 
 export default () => {
