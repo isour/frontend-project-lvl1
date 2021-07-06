@@ -24,7 +24,7 @@ const getOperation = () => operations[generateNumber(0, operations.length)];
 
 const generateQuestions = () => {
   let questionCount = QUESTION_COUNT;
-  const result = [];
+  const rounds = [];
   while (questionCount > 0) {
     const digit1 = generateNumber(0, 100);
     const digit2 = generateNumber(0, 100);
@@ -32,13 +32,13 @@ const generateQuestions = () => {
     const rightAnswer = String(operLink.fn(digit1, digit2));
     const operSign = operLink.sign;
     const question = `${digit1} ${operSign} ${digit2}`;
-    result.push({
+    rounds.push({
       question,
       rightAnswer,
     });
     questionCount -= 1;
   }
-  return result;
+  return rounds;
 };
 
 export default () => {

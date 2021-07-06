@@ -20,18 +20,18 @@ const getEcd = (a, b) => {
 
 const generateQuestions = () => {
   let questionCount = QUESTION_COUNT;
-  const result = [];
+  const rounds = [];
   while (questionCount > 0) {
     const digit1 = generateNumber(0, 100);
     const digit2 = generateNumber(0, 100);
     const rightAnswer = String(getEcd(digit1, digit2));
-    result.push({
+    rounds.push({
       question: `${digit1} ${digit2}`,
       rightAnswer,
     });
     questionCount -= 1;
   }
-  return result;
+  return rounds;
 };
 
 export default () => {

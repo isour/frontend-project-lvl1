@@ -12,17 +12,17 @@ const isEven = (number) => number % 2 === 0;
 
 const generateQuestions = () => {
   let questionCount = QUESTION_COUNT;
-  const result = [];
+  const rounds = [];
   while (questionCount > 0) {
     const digit = generateNumber(0, 100);
     const rightAnswer = getStringAnswer(isEven(digit));
-    result.push({
+    rounds.push({
       question: digit.toString(),
       rightAnswer,
     });
     questionCount -= 1;
   }
-  return result;
+  return rounds;
 };
 
 export default () => {

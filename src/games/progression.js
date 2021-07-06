@@ -22,22 +22,20 @@ const getCensouredSequence = (arr, idx) => {
   return seq;
 };
 
-const makeQuestion = (arr) => arr.reduce((acc, current) => `${acc} ${current}`, '').trim();
-
 const generateQuestions = () => {
   let questionCount = QUESTION_COUNT;
-  const result = [];
+  const rounds = [];
   while (questionCount > 0) {
-    const seq = getSequence(1, generateNumber(0, 100), 5 + generateNumber(0, 5));
-    const seqElIndex = generateNumber(0, seq.length);
-    const rightAnswer = String(seq[seqElIndex]);
-    result.push({
-      question: makeQuestion(getCensouredSequence(seq, seqElIndex)),
+    const seq = getSequence(1, generateNumber(0, 100), generateNumber(5, 10));
+    const hiddenIndex = generateNumber(0, seq.length);
+    const rightAnswer = String(seq[hiddenIndex]);
+    rounds.push({
+      question: getCensouredSequence(seq, hiddenIndex).join(' ').trim(),
       rightAnswer,
     });
     questionCount -= 1;
   }
-  return result;
+  return rounds;
 };
 
 export default () => {

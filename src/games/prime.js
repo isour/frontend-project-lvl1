@@ -2,6 +2,8 @@ import run, {
   QUESTION_COUNT,
 } from '../index.js';
 
+import generateNumber from '../utils.js';
+
 const description = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
 const getStringAnswer = (bool) => (bool ? 'yes' : 'no');
@@ -21,16 +23,16 @@ const checkIsPrime = (num) => {
 
 const generateQuestions = () => {
   let questionCount = QUESTION_COUNT;
-  const result = [];
+  const rounds = [];
   while (questionCount > 0) {
-    const digit = Math.floor(Math.random() * 100);
-    result.push({
-      question: digit,
+    const digit = generateNumber(1, 100);
+    rounds.push({
+      question: digit.toString(),
       rightAnswer: getStringAnswer(checkIsPrime(digit)),
     });
     questionCount -= 1;
   }
-  return result;
+  return rounds;
 };
 
 export default () => {

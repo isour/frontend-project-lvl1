@@ -1,24 +1,21 @@
 import readlineSync from 'readline-sync';
-import askName from './cli.js';
 
 const QUESTION_COUNT = 3;
 
-let name;
-
-const askQuestion = (question) => readlineSync.question(`Question: ${question}\n`);
-
 const run = (description, rounds) => {
-  name = askName();
+  const name = readlineSync.question('May I have your name? ');
+  console.log(`Hello, ${name}!`);
   console.log(description);
 
   for (let i = 0; i < rounds.length; i += 1) {
     const { question, rightAnswer } = rounds[i];
-    const answer = askQuestion(question);
+    const answer = readlineSync.question(`Question: ${question}\n`);
 
     if (answer !== rightAnswer) {
       console.log(`'${answer}' is wrong answer ;(. Correct answer was '${rightAnswer}'.\nLet's try again, ${name}!`);
       return;
     }
+    console.log(`Your answer: ${answer}`);
     console.log('Correct!');
   }
   console.log(`Congratulations, ${name}!`);
