@@ -29,5 +29,5 @@ jobs:
           node-version: '14'
 
       # Runs a single command using the runners shell
-      - name: Run lint
+      - name: Install modules & run lint
         run: npm i && make lint
