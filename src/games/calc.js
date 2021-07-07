@@ -9,15 +9,15 @@ const description = 'What is the result of the expression?';
 const operations = [
   {
     sign: '+',
-    fn: (a, b) => Number(a) + Number(b),
+    fn: (a, b) => a + b,
   },
   {
     sign: '-',
-    fn: (a, b) => Number(a) - Number(b),
+    fn: (a, b) => a - b,
   },
   {
     sign: '*',
-    fn: (a, b) => Number(a) * Number(b),
+    fn: (a, b) => a * b,
   }];
 
 const getOperation = () => operations[generateNumber(0, operations.length)];

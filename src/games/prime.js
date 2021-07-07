@@ -6,9 +6,9 @@ import generateNumber from '../utils.js';
 
 const description = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
-const getStringAnswer = (bool) => (bool ? 'yes' : 'no');
+const getAnswer = (bool) => (bool ? 'yes' : 'no');
 
-const checkIsPrime = (num) => {
+const isPrime = (num) => {
   if (num <= 1) return false;
   if (num === 2) return true;
   if (num % 2 === 0) return false;
@@ -28,7 +28,7 @@ const generateQuestions = () => {
     const digit = generateNumber(1, 100);
     rounds.push({
       question: digit.toString(),
-      rightAnswer: getStringAnswer(checkIsPrime(digit)),
+      rightAnswer: getAnswer(isPrime(digit)),
     });
     questionCount -= 1;
   }

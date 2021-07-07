@@ -8,10 +8,8 @@ const description = 'What number is missing in the progression?';
 
 const getSequence = (progressionStep, progressionBase, progressionLength) => {
   const seq = [];
-  let step = 0;
   for (let i = 0; i < progressionLength; i += 1) {
-    seq[i] = progressionBase + step;
-    step += progressionStep;
+    seq[i] = progressionBase + i * progressionStep;
   }
   return seq;
 };

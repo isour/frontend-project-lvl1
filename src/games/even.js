@@ -4,7 +4,7 @@ import run, {
 
 import generateNumber from '../utils.js';
 
-const getStringAnswer = (bool) => (bool ? 'yes' : 'no');
+const getAnswer = (bool) => (bool ? 'yes' : 'no');
 
 const description = 'Answer "yes" if the number is even, otherwise answer "no".';
 
@@ -15,7 +15,7 @@ const generateQuestions = () => {
   const rounds = [];
   while (questionCount > 0) {
     const digit = generateNumber(0, 100);
-    const rightAnswer = getStringAnswer(isEven(digit));
+    const rightAnswer = getAnswer(isEven(digit));
     rounds.push({
       question: digit.toString(),
       rightAnswer,
